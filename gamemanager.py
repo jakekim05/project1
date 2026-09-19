@@ -41,6 +41,7 @@ class GameManager:
         else:
             print("The game is a draw.")
 
+        
     def start_turn(self, time):
         player = self.player[self.whos_turn]
         self.whos_turn ^= 1
