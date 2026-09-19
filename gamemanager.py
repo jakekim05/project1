@@ -20,11 +20,20 @@ class GameManager:
                             count += 1
                             ni += di
                             nj += dj
+                        di = -di
+                        dj = -dj
+                        ni, nj = i, j
+                        while 0 <= ni + di < self.board.size and 0 <= nj + dj < self.board.size\
+                        and self.board.board[ni + di][nj + dj] == color:
+                            count += 1
+                            ni += di
+                            nj += dj
                         if count == 5:
                             return color
         return -1
 
     def end_game(self):
+        self.board.print_board()
         winner = self.whos_win()
         if winner == 0:
             print("Black player wins!")
