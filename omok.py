@@ -3,10 +3,9 @@ from humanplayer import HumanPlayer
 from randomplayer import RandomPlayer
 from simpleplayer import SimplePlayer
 from smartplayergaessapgosu import SmartPlayerGaeSsapGosu
-from godplayernemesis import RealGosu
 
 def main():
-    mkp = [HumanPlayer, RandomPlayer, SimplePlayer, SmartPlayerGaeSsapGosu, RealGosu]
+    mkp = [HumanPlayer, RandomPlayer, SimplePlayer, SmartPlayerGaeSsapGosu]
     
     wins = 0
     losses = 0
