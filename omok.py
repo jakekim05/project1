@@ -3,10 +3,11 @@ from humanplayer import HumanPlayer
 from randomplayer import RandomPlayer
 from simpleplayer import SimplePlayer
 from smartplayergaessapgosu import SmartPlayerGaeSsapGosu
+from smartplayerClaude import SmartPlayerClaude
 
 import sys
 argv = sys.argv
-mkp = [HumanPlayer, RandomPlayer, SimplePlayer, SmartPlayerGaeSsapGosu]
+mkp = [HumanPlayer, RandomPlayer, SimplePlayer, SmartPlayerGaeSsapGosu, SmartPlayerClaude]
 
 game = GameManager(mkp[int(argv[1])](0), mkp[int(argv[2])](1))
 while game.whos_win() == -1:
