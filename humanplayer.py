@@ -26,8 +26,8 @@ class HumanPlayer(Player):
                     print("Invalid format. Please use n,m with no spaces.")
                     continue
                 
-                row = int(parts[0].strip())
-                col = int(parts[1].strip())
+                row = int(parts[0])
+                col = int(parts[1])
 
                 if not (0 <= row < SIZE and 0 <= col < SIZE):
                     print(f"Out of bounds! Coordinates must be between 0 and {SIZE - 1}.")
