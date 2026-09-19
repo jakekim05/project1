@@ -15,11 +15,7 @@ class HumanPlayer(Player):
             print("Black Player\'s Turn")
         else:
             print("White Player\'s Turn")
-        # This time display was updated with help from OpenAI Codex.
-        if time == -1:
-            print("Time remaining: No time limit")
-        else:
-            print(f"Time remaining: {time / 1000.0:.2f} seconds ({time} ms)")
+        print(f"Time remaining: {time / 1000.0:.2f} seconds ({time} ms)")
 
         while True:
             try:
