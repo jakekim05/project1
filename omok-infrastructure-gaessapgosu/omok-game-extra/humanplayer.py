@@ -10,7 +10,7 @@ class HumanPlayer(Player):
         super().__init__(color)
         self._prev_board = None
 
-    def take_turn(self, board, time):
+    def take_turn(self, gui, board, time):
         if self.color ==0:
             print("Black Player\'s Turn")
         else:
@@ -19,8 +19,10 @@ class HumanPlayer(Player):
 
         while True:
             try:
-                user_input = input("Enter your move (format: row,col e.g. 3,4): ").strip()
-                
+                user_input = gui.get_position()
+                if user_input is None:
+                    print("Click within the board boundaries.")
+                    continue
                 parts = user_input.split(",")
                 if len(parts) != 2:
                     print("Invalid format. Please use n,m with no spaces.")

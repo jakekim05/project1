@@ -18,12 +18,10 @@ def main():
         print("  0: HumanPlayer")
         print("  1: RandomPlayer")
         print("  2: SimplePlayer")
-        print("  3: SmartPlayerGaeSsapGosu")
-        print("  4: SmartPlayerClaude")
         try:
-            opp_choice = int(input("Enter opponent number (0-4): "))
-            if opp_choice not in [0, 1, 2, 3, 4]:
-                print("Invalid selection. Please choose 0, 1, 2, 3, or 4.")
+            opp_choice = int(input("Enter opponent number (0-2): "))
+            if opp_choice not in [0, 1, 2]:
+                print("Invalid selection. Please choose 0, 1, or 2.")
                 continue
         except ValueError:
             print("Invalid input. Please enter an integer.")

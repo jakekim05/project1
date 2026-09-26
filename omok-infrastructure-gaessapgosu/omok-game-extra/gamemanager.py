@@ -1,11 +1,12 @@
 from board import Board
 
 class GameManager:
-    def __init__(self, player1, player2):
+    def __init__(self, player1, player2, gui):
         self.player = [player1, player2]
         self.whos_turn = 0
         self.board = Board()
-    
+        self.gui = gui
+
     def whos_win(self):
         for i in range(self.board.size):
             for j in range(self.board.size):
