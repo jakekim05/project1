@@ -1,11 +1,10 @@
 from board import Board
 
 class GameManager:
-    def __init__(self, player1, player2, gui):
+    def __init__(self, player1, player2):
         self.player = [player1, player2]
         self.whos_turn = 0
         self.board = Board()
-        self.gui = gui
 
     def whos_win(self):
         for i in range(self.board.size):
@@ -55,7 +54,7 @@ class GameManager:
             if not board.valid_pos(*move) or board.board[move[0]][move[1]] != -1:
                 assert False, "Invalid move. Please try again."
             i, j = move
-            board.board[i][j] = player.color
+            board.put_stone(i, j, player.color)
             print(f"Player {'Black' if player.color == 0 else 'White'} placed at ({i}, {j})")
         else:
             print("No valid move made.")
@@ -72,4 +71,5 @@ class GameManager:
             if board.valid_pos(ni, nj) and board.board[ni][nj] == player.color:
                 c = 1
             if a and b and c:
-                board.board[i+1*di][j+1*dj] = board.board[i+2*di][j+2*dj] = -1
+                board.delete_stone(i+1*di, j+1*dj)
+                board.delete_stone(i+2*di, j+2*dj)

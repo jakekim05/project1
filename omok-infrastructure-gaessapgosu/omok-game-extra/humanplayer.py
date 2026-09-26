@@ -1,6 +1,6 @@
 import time as time
-
 from player import Player
+from gui import gui
 
 SIZE = 19
 EMPTY = -1
@@ -10,7 +10,7 @@ class HumanPlayer(Player):
         super().__init__(color)
         self._prev_board = None
 
-    def take_turn(self, gui, board, time):
+    def take_turn(self, board, time):
         if self.color ==0:
             print("Black Player\'s Turn")
         else:
@@ -23,13 +23,8 @@ class HumanPlayer(Player):
                 if user_input is None:
                     print("Click within the board boundaries.")
                     continue
-                parts = user_input.split(",")
-                if len(parts) != 2:
-                    print("Invalid format. Please use n,m with no spaces.")
-                    continue
                 
-                row = int(parts[0])
-                col = int(parts[1])
+                row, col = user_input
 
                 if not (0 <= row < SIZE and 0 <= col < SIZE):
                     print(f"Out of bounds! Coordinates must be between 0 and {SIZE - 1}.")
