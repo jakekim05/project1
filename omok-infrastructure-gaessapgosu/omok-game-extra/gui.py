@@ -29,18 +29,18 @@ class Gui(tk.Tk):
         return self.canvas.create_oval(x - radius, y - radius, x + radius, y + radius, fill=fill_color, outline='black')
 
     def get_position(self):
-        click_pos = []
-        wait_flag = tk.BooleanVar()
+        x, y = 0, 0
+        flag = tk.BooleanVar()
 
         def on_click(event):
-            click_pos.extend([event.x, event.y])
-            wait_flag.set(True)
+            nonlocal x, y
+            x, y = event.x, event.y
+            flag.set(True)
 
         self.canvas.bind("<Button-1>", on_click)
-        self.wait_variable(wait_flag)
+        self.wait_variable(flag)
         self.canvas.unbind("<Button-1>")
 
-        x, y = click_pos[0], click_pos[1]
         if self.d <= x <= self.d + self.side and self.d <= y <= self.d + self.side:
             col = int((x - self.d) / self.box)
             row = int((y - self.d) / self.box)
