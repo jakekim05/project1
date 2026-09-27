@@ -24,6 +24,9 @@ class GameManager:
     def whos_win(self):
         if self.auto != -1:
             return self.auto
+        winners = set()
+        if self.auto != -1:
+            return self.auto
         for i in range(self.board.size):
             for j in range(self.board.size):
                 if self.board.board[i][j] != -1:
@@ -45,8 +48,16 @@ class GameManager:
                             ni += di
                             nj += dj
                         if count == 5:
-                            return color
-        return -1
+                            winners.add(color)
+        if len(winners) >= 2:
+            return 2
+        elif len(winners) == 1:
+            return int(''.join(str(ob) for ob in winners))
+        else:
+            for i in self.board.board:
+                if -1 in i:
+                    return -1
+        return 2
 
     def end_game(self):
         self.board.print_board()
@@ -72,8 +83,7 @@ class GameManager:
             self.zm[self.whos_turn] -= (time.monotonic() - start) * 1000
             if self.zm[self.whos_turn] <= 0:
                 self.zm[self.whos_turn], self.auto = 0, self.whos_turn ^ 1
-                color = "Black" if self.whos_turn == 0 else "White"
-                print(f"{color} ran out of time.")
+                print(f"{'Black' if self.whos_turn == 0 else 'White'} ran out of time.")
                 return
         
         if move:
