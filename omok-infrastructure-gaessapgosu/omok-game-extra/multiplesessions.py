@@ -21,11 +21,11 @@ class MultipleSessions:
             for idx, name in enumerate(self.opponent_names):
                 print(f"  {idx}: {name}")
             
-            #Select opponent
+            #opponent
             opp_choice = self._get_valid_input("Enter opponent choice (0-2): ", len(self.opponent_names))
             opponent_cls = self.opponent_classes[opp_choice]
 
-            #Choose whether human plays black or white
+            #b/w
             print("\nChoose your turn order:")
             print("  0: Human plays First (Black)")
             print("  1: Human plays Second (White)")
@@ -40,7 +40,6 @@ class MultipleSessions:
                 player1 = opponent_cls(0)
                 player2 = HumanPlayer(1)
 
-            # 3. Run the game session (no command-line params for players)[cite: 13]
             game = GameManager(player1, player2)
             while game.whos_win() == -1:
                 game.start_turn(-1)
@@ -62,7 +61,7 @@ class MultipleSessions:
             print(f" SCOREBOARD -> Wins: {self.wins} | Losses: {self.losses} | Draws: {self.draws}")
             print("==============================")
 
-            # 5. Play another game or exit[cite: 13]
+            #again
             cont = ""
             while cont != "e" and cont != "c":
                 cont = input("Type 'c' to play another game or 'e' to exit: ").strip().lower()
