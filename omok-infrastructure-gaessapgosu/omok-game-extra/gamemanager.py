@@ -73,3 +73,7 @@ class GameManager:
             if a and b and c:
                 board.delete_stone(i+1*di, j+1*dj)
                 board.delete_stone(i+2*di, j+2*dj)
+
+
+
+                

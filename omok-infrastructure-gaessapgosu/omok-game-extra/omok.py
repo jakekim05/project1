@@ -2,6 +2,7 @@ from gamemanager import GameManager
 from humanplayer import HumanPlayer
 from randomplayer import RandomPlayer
 from simpleplayer import SimplePlayer
+from multiplesessions import MultipleSessions
 
 import sys
 argv = sys.argv
@@ -11,3 +12,10 @@ game = GameManager(mkp[int(argv[1])](0), mkp[int(argv[2])](1))
 while game.whos_win() == -1:
     game.start_turn(-1)
 game.end_game()
+
+def main():
+    manager = MultipleSessions()
+    manager.run()
+
+if __name__ == "__main__":
+    main()
